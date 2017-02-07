@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(\"rpart\")\nlibrary(\"rpart.plot\")\n\n#Construcao de arvore de decisao com classe NOMINAL para CLASSIFICAO\n#Base de dados: IRIS, 4 atributos: petal_length, petal_width, sepal_legth, sepal_width (reais)\n#                     Classes: Iris-virginica, Iris-versicolor, Iris-setosa (nominal)\n\n#=================TREINAMENTO===============================\n\n#Leitura de dados IRIS\ndados_treina <- read.table('iris_treina.dat',header=TRUE,sep=\",\")\n\n#Criacao do modelo de ARVORE DECISAO\narvore <- rpart(classe ~ sepal_length +  sepal_width + petal_length +  petal_width, data = dados_treina, method = \"class\", control = rpart.control(minsplit = 1), parms = list(split = \"Information\"))\n\n#PLOTA arvore criada\nplot_arvore <- rpart.plot(arvore, type=3)\n\n#=================TESTE====================================\n#Leitura de dados IRIS\ndados_teste <- read.table('iris_teste.dat',header=TRUE,sep=\",\")\n\n#Classificando 37 instancias de treinamento\nteste <- predict(arvore,dados_teste,type=\"class\")\n\n\n#Resultado da classifacao\nwrite.csv(teste,file=\"result_teste_iris.csv\")\n\n\n\n\n\n",
+    "created" : 1486323917949.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2542271477",
+    "id" : "E7763B45",
+    "lastKnownWriteTime" : 1486423727,
+    "last_content_update" : 1486423727839,
+    "path" : "~/Documents/AI/T2-IA-Wilton/MachineLearning/arvoreDecisao.R",
+    "project_path" : "arvoreDecisao.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

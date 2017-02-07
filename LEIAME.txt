@@ -1,0 +1,7 @@
+Inteligência Artificial - 2016/2 - UFScar 
+Wilton V. G. da Cruz RA: 586889 - T2
+
+================================================================================================================================================
+
+OBS1) Na pasta "src" estão os códigos em R, imagens das árvores geradas, datasets utilizados e resultados da aplicação das árvores em csv e nas planilhas xlm.
+OBS2) Na pasta "docs" estão o relatório em pdf "relatorioT2-IA.pdf" e odt e a descrição do trabalho.

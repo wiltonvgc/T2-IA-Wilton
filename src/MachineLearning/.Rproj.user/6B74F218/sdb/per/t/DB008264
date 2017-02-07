@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(\"rpart\")\nlibrary(\"rpart.plot\")\n\n#Construcao de arvore de REGRESSAO com classe CONTINUA\n# DataSet: FORESTFIRE atributos: X, Y => int mont, day => nominal FFMC,DMC,DC,ISI,temp => real, RH => int, wind => real, rain,area => real\n#                     atributo CLASSE escolhido : temp \n#=================TREINAMENTO===============================\n\n#Leitura de dados FORESTFIRE\ndados_treina <- read.table('forestfires_treina.dat',header=TRUE,sep=\",\")\n\n#Criacao do modelo de ARVORE REGRESSAO\narvore <- rpart(temp ~ X + Y + month + day + FFMC + DMC + DC + ISI + RH + wind + rain + area, data = dados_treina, method = \"anova\",parms = list(split = \"Information\"))\n\n\n#PLOTA arvore criada\nplot_arvore <- rpart.plot(arvore, type=3)\n\n#=================TESTE====================================\n#Leitura de dados FORESTFIRE\ndados_teste <- read.table('forestfires_teste.dat',header=TRUE,sep=\",\")\n\n#Classificando 129 instancias de treinamento\nteste <- predict(arvore,dados_teste,type=\"vector\")\n\n#Resultado da classifacao\nwrite.csv(teste,file=\"result_teste_fire.csv\")\n\n",
+    "created" : 1486323143853.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "974632480",
+    "id" : "DB008264",
+    "lastKnownWriteTime" : 1486423700,
+    "last_content_update" : 1486423700889,
+    "path" : "~/Documents/AI/T2-IA-Wilton/MachineLearning/arvoreRegressao.R",
+    "project_path" : "arvoreRegressao.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
